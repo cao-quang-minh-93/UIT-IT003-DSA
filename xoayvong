@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+
+#define f(a,b,n) for(int a=b;a<=n;a++)
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    vector <int> a;
+    vector <int> ans;
+    int n,k;
+    cin>>n>>k;
+    f(i,0,n-1)
+    {
+        int im;
+        cin>>im;
+        a.push_back(im);
+    }
+    int z=k%n;
+    f(i,n-z,n-1)
+    ans.push_back(a[i]);
+    f(i,0,n-z-1)
+    ans.push_back(a[i]);
+    
+    f(i,0,n-1) cout<<a[i];
+    return 0;
+}
+
