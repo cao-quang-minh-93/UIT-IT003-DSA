@@ -15,11 +15,8 @@ void sw(int &n,int &m)
 void Interchange_Sort(int a[],int n)
 {
     f(i,0,n-2)
-    {
         f(j,i+1,n-1)
             if(a[i]>a[j]) sw(a[i],a[j]);
-    }
-
 }
 ////////////////////////////////////////////////
 void SelectionSort (int a[], int n)
