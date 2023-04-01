@@ -1,0 +1,95 @@
+#include <bits/stdc++.h>
+///////////// full sort /////////////////////////
+#define f(a,b,n) for(int a=b;a<=n;a++)
+#define fd(a,b,n) for(int a=b;a>=n;a--)
+using namespace std;
+
+////////////////////////////////////////////////
+
+long vitrung(int n)
+{
+    if (n==0) return 2;
+    return 2*vitrung(n-1);
+}
+
+
+long goitien(int n)
+{
+    if(n==0) return 1000;
+    return goitien(n-1)+goitien(n-1)*0.12;
+}
+
+long long giaithua(int n)
+{
+    if (n==1) return 1;
+    return giaithua(n-1)*n;
+}
+
+long fibo(int n)
+{
+    if(n==1||n==0) return 1;
+    return fibo(n-1)+fibo(n-2);
+}
+
+double luythua(float x,int n)
+{
+    if(n==1) return x;
+    return luythua(x,n-1)*x;
+}
+
+int ucln_tru(int a,int b)
+{
+    a=abs(a);
+    b=abs(b);
+    if(a==b) return a;
+    if(a>b) return ucln_tru(a-b,b);
+    ucln_tru(a,b-a);
+}
+
+int ucln_du(int a,int b)
+{
+    if(b==0) return a;
+    return ucln_du(b,a%b);
+}
+
+int tohop(int n, int k)
+{
+    if (k>n) return 0;
+	if (k == 0 || k == n)
+		return 1;
+	return (tohop(n - 1, k - 1) + tohop(n - 1, k));
+}
+
+////////////////////////////////////////////////
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    freopen("process.inp","r",stdin);
+    freopen("process.out","w",stdout);
+    int n;
+    cout<<"Nhap n: "<<endl;
+    cin>>n;
+    cout<<"Sau "<<n<<" gio co "<<vitrung(n)<<" con vi trung"<<endl;
+    cout<<"Sau "<<n<<" nam, so tien co duoc: "<<goitien(n)<<endl;
+    cout<<n<<"!: "<<giaithua(n)<<endl;
+    cout<<"Fibo("<<n<<"): "<<fibo(n)<<endl;
+
+    cout<<"Nhap x: "<<endl;
+    float x; cin>>x;
+    cout<<x<<" luy thua "<<n<< ": "<<setprecision(15)<<luythua(x,n)<<endl;
+
+    cout<<"Nhap a va b: "<<endl;
+    int a, b; cin>>a>>b;
+    cout<<"Uoc chung lon nhat cua "<<a<<" va "<<b<<": ";
+    cout<<ucln_tru(a,b)<<" "<<ucln_du(a,b)<<endl;
+
+
+    cout<<"Nhap k: "<<endl;
+    int k; cin>>k;
+    cout<<"So luong to hop chap "<<k<<" cua "<<n<<" phan tu: "<<tohop(n,k);
+
+
+    return 0;
+}
+
