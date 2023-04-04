@@ -6,54 +6,35 @@ using namespace std;
 
 ////////////////////////////////////////////////
 
-struct Point
-{
-    long x, y;
-};
 
-bool compareXY(const Point &A, const Point &B)
-{
-    if (A.x != B.x)
-        return A.x < B.x;
-    return A.y > B.y;
-}
-
-void quickSort(vector<Point>& arr, int left, int right)
-{
-    int i = left, j = right;
-    Point tmp;
-    Point pivot = arr[(left + right) / 2];
-
-    while (i <= j)
-    {
-        while (compareXY(arr[i], pivot)) i++;
-        while (compareXY(pivot, arr[j])) j--;
-        if (i <= j)
-        {
-            tmp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = tmp;
-            i++;
-            j--;
-        }
-    }
-
-    if (left < j) quickSort(arr, left, j);
-    if (i < right) quickSort(arr, i, right);
-}
 
 ////////////////////////////////////////////////
 int main()
 {
-    //ios_base::sync_with_stdio(false);
-    //cin.tie(0);
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
     //freopen("process.inp","r",stdin);
     //freopen("process.out","w",stdout);
-    int n;
-    scanf("%d", &n);
-    vector<Point> a(n);
-    f(i,0,n-1) scanf("%ld %ld", &a[i].x, &a[i].y);
-    quickSort(a, 0, n-1);
-    f(i,0,n-1) printf("%ld %ld\n", a[i].x, a[i].y);
+    priority_queue <int, vector<int>,less_equal <int>> arr;
+    while(1)
+    {
+        int a;
+        cin>>a;
+        if(a==-2) break;
+        if(a==-1)
+        {
+            int maxx=arr.top();
+            while(maxx==arr.top())
+                arr.pop();
+        }
+        if(arr.size()<100000&&a!=-1) arr.push(a);
+    }
+    cout<<arr.size()<<endl;
+    int n=arr.size();
+    f(i,0,n-1)
+    {
+        cout<<arr.top()<<endl;
+        arr.pop();
+    }
     return 0;
 }
