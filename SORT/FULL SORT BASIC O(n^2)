@@ -123,21 +123,5 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    freopen("process.inp","r",stdin);
-    freopen("process.out","w",stdout);
-    int a[11],n;
-    cin>>n;
-    f(i,0,n-1) cin>>a[i];
-    //Interchange_Sort(a,n);
-    //Shaker_Sort(a,n);
-    //Insertion_Sort(a,n);
-    //Binary_Insertion_Sortint(a,n);
-    //Shell_Sort(a,n);
-    //SelectionSort(a,n);
-    //quickSort(a,0,n-1);
-    //radixsort(a,n);
-    //f(i,0,n-1) cout<<a[i]<<" ";
-    f(i,0,n-1)
-    cout<<a[i]<<" ";
     return 0;
 }
